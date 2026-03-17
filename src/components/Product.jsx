@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useProductContext } from "../context/ProductContext";
 
 const Product = ({ productItem }) => {
-  const {id, name, price, description, image, title, rating, discountPrice } =
+  const {id, name, price, description, image, title, rating, discountPrice, category } =
     productItem;
 
   const { cart, setCart } = useProductContext();
@@ -30,6 +30,7 @@ const handleCancel = (id) => {
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <p className="text-gray-500">{description}</p>{" "}
+        <h3 className="card-title bg-amber-600 text-white w-fit px-6 py-1 rounded">{category}</h3>
         <p>Original Price: ${price.toFixed(2)}</p>
         <p>Discount Price: ${discountPrice.toFixed(2)}</p>
         <p>Rating: {rating} stars</p>

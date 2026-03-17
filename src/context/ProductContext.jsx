@@ -6,11 +6,15 @@ import { productReducer } from './reducers/productReducer';
 
 
 const ProductContext = createContext();
+const initialState = {
+  allProducts: [], // full product list
+  filteredProducts: [] // products after filter/search
+};
 
 
 export const ProductProvider = ({ children }) => {
 
-  const [state, dispatch] = useReducer(productReducer, []);
+  const [state, dispatch] = useReducer(productReducer, initialState);
   const [cart , setCart]=useState([])
 
   const getProducts = async () => {
