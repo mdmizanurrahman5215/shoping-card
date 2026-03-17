@@ -15,7 +15,8 @@ const Product = ({ productItem }) => {
     alert("Item is already in the cart!");
     return;
   }
-  setCart((prev) => [...prev, productItem]);
+   
+  setCart((prev) => [...prev, { ...productItem, quantity: 1 }]);
 };
 const handleCancel = (id) => {
     setOpen(false)
